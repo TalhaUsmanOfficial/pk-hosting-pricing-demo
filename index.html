@@ -11,36 +11,288 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PK-Hosting Pricing Page</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="js/main.js" defer></script>
   </head>
   <body>
     <!-- ? Header -->
-    <header>
-      <nav aria-label="Main navigation">
-        <a href="#" aria-label="PKHosting home"> PKHosting </a>
+    <header class="site-header">
+      <nav class="container navbar" aria-label="Main navigation">
+        <a href="#" class="brand" aria-label="PKHosting home">
+          PK<span>Hosting</span>
+        </a>
 
-        <ul>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#comparison">Compare Plans</a></li>
-          <li><a href="#faq">FAQ</a></li>
+        <ul class="nav-links">
+          <li>
+            <a href="#pricing">Pricing</a>
+          </li>
+
+          <li>
+            <a href="#comparison">Compare Plans</a>
+          </li>
+
+          <li>
+            <a href="#faq">FAQ</a>
+          </li>
         </ul>
+
+        <a href="#pricing" class="button button--primary nav-cta">
+          View Plans
+        </a>
       </nav>
     </header>
 
     <!-- ? Main Content -->
     <main>
       <!-- ? Hero Section -->
-      <section aria-labelledby="hero-heading">
-        <h1 id="hero-heading">Powerful VPS Hosting. Complete Control.</h1>
+      <section class="hero-section" aria-labelledby="hero-heading">
+        <div class="container hero-content">
+          <span class="hero-label">VPS HOSTING</span>
 
-        <p>Reliable virtual servers designed for your growing business.</p>
+          <h1 id="hero-heading">
+            Power Your Projects With
+            <span class="hero-highlight">Reliable VPS Hosting</span>
+          </h1>
 
-        <a href="#pricing">Explore VPS Plans</a>
+          <p class="hero-description">
+            Get flexible server resources, KVM virtualization, and full root
+            access to run your applications your way.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="button button--primary">
+              Explore VPS Plans
+            </a>
+
+            <a href="#comparison" class="button button--secondary">
+              Compare Plans
+            </a>
+          </div>
+
+          <ul class="hero-features" aria-label="VPS plan highlights">
+            <li>
+              <strong>KVM</strong>
+              <span>Virtualization</span>
+            </li>
+
+            <li>
+              <strong>NVMe</strong>
+              <span>Storage</span>
+            </li>
+
+            <li>
+              <strong>Root</strong>
+              <span>Access</span>
+            </li>
+          </ul>
+        </div>
       </section>
 
       <!-- ? Pricing Section -->
-      <section id="pricing" aria-labelledby="pricing-heading">
-        <h2 id="pricing-heading">Simple, Transparent Pricing</h2>
-        <!-- TODO: Pricing content would go here -->
+
+      <section
+        id="pricing"
+        class="section pricing-section"
+        aria-labelledby="pricing-heading"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="pricing-heading">Choose Your VPS Plan</h2>
+            <p>Flexible VPS hosting plans built for every stage of growth.</p>
+          </div>
+
+          <div class="billing-controls" hidden>
+            <fieldset class="billing-options">
+              <legend>Choose billing period</legend>
+
+              <label>
+                <input
+                  type="radio"
+                  name="billing-period"
+                  value="monthly"
+                  checked
+                />
+                Monthly
+              </label>
+
+              <label>
+                <input type="radio" name="billing-period" value="annual" />
+                Annual
+                <span class="billing-discount">Save 2 months</span>
+              </label>
+            </fieldset>
+
+            <!-- ! Currency Control -->
+            <div class="currency-control">
+              <label for="currency-select">Display currency</label>
+
+              <select id="currency-select" name="currency">
+                <option value="PKR" selected>PKR — Pakistani Rupee</option>
+                <option value="USD">USD — US Dollar</option>
+                <option value="GBP">GBP — British Pound</option>
+              </select>
+            </div>
+          </div>
+
+          <p
+            id="billing-status"
+            class="visually-hidden"
+            role="status"
+            aria-live="polite"
+          >
+            Showing monthly prices.
+          </p>
+
+          <div class="pricing-grid">
+            <!-- ! Starter Plan -->
+            <article class="pricing-card">
+              <div class="pricing-card-header">
+                <h3>Starter</h3>
+                <p>Perfect for personal projects and small websites.</p>
+              </div>
+
+              <div class="pricing-price">
+                <span class="price-amount" data-monthly-pkr="2400"
+                  >PKR 2,400</span
+                >
+                <span class="price-period">/ month</span>
+              </div>
+              <div class="annual-details" hidden>
+                <p class="annual-total">
+                  <strong class="annual-total-amount"></strong>
+                  <span> billed annually</span>
+                </p>
+                <p class="annual-savings"></p>
+              </div>
+
+              <a href="#faq" class="button button--secondary pricing-button">
+                Select Plan
+              </a>
+
+              <ul class="pricing-features">
+                <li>1 vCPU Core</li>
+                <li>2 GB RAM</li>
+                <li>30 GB NVMe Storage</li>
+                <li>1 TB Bandwidth</li>
+                <li>Full Root Access</li>
+              </ul>
+            </article>
+
+            <!-- ! Growth Plan -->
+            <article class="pricing-card pricing-card--popular">
+              <span class="popular-badge">Most Popular</span>
+
+              <div class="pricing-card-header">
+                <h3>Growth</h3>
+                <p>More power for growing websites and applications.</p>
+              </div>
+
+              <div class="pricing-price">
+                <span class="price-amount" data-monthly-pkr="4800"
+                  >PKR 4,800</span
+                >
+                <span class="price-period">/ month</span>
+              </div>
+              <div class="annual-details" hidden>
+                <p class="annual-total">
+                  <strong class="annual-total-amount"></strong>
+                  <span> billed annually</span>
+                </p>
+                <p class="annual-savings"></p>
+              </div>
+
+              <div class="annual-details" hidden>
+                <p class="annual-total">
+                  <strong class="annual-total-amount"></strong>
+                  <span> billed annually</span>
+                </p>
+                <p class="annual-savings"></p>
+              </div>
+
+              <a href="#faq" class="button button--primary pricing-button">
+                Select Plan
+              </a>
+
+              <ul class="pricing-features">
+                <li>2 vCPU Cores</li>
+                <li>4 GB RAM</li>
+                <li>60 GB NVMe Storage</li>
+                <li>2 TB Bandwidth</li>
+                <li>Full Root Access</li>
+              </ul>
+            </article>
+
+            <!-- ! Scale Plan -->
+            <article class="pricing-card">
+              <div class="pricing-card-header">
+                <h3>Scale</h3>
+                <p>Designed for demanding applications and workloads.</p>
+              </div>
+
+              <div class="pricing-price">
+                <span class="price-amount" data-monthly-pkr="9600"
+                  >PKR 9,600</span
+                >
+                <span class="price-period">/ month</span>
+              </div>
+
+              <div class="annual-details" hidden>
+                <p class="annual-total">
+                  <strong class="annual-total-amount"></strong>
+                  <span> billed annually</span>
+                </p>
+                <p class="annual-savings"></p>
+              </div>
+
+              <a href="#faq" class="button button--secondary pricing-button">
+                Select Plan
+              </a>
+
+              <ul class="pricing-features">
+                <li>4 vCPU Cores</li>
+                <li>8 GB RAM</li>
+                <li>120 GB NVMe Storage</li>
+                <li>4 TB Bandwidth</li>
+                <li>Full Root Access</li>
+              </ul>
+            </article>
+
+            <!-- ! Dedicated Core Plan -->
+            <article class="pricing-card">
+              <div class="pricing-card-header">
+                <h3>Dedicated Core</h3>
+                <p>High-performance resources for intensive workloads.</p>
+              </div>
+
+              <div class="pricing-price">
+                <span class="price-amount" data-monthly-pkr="19500"
+                  >PKR 19,500</span
+                >
+                <span class="price-period">/ month</span>
+              </div>
+
+              <div class="annual-details" hidden>
+                <p class="annual-total">
+                  <strong class="annual-total-amount"></strong>
+                  <span> billed annually</span>
+                </p>
+                <p class="annual-savings"></p>
+              </div>
+
+              <a href="#faq" class="button button--secondary pricing-button">
+                Select Plan
+              </a>
+
+              <ul class="pricing-features">
+                <li>8 vCPU Cores</li>
+                <li>16 GB RAM</li>
+                <li>240 GB NVMe Storage</li>
+                <li>8 TB Bandwidth</li>
+                <li>Full Root Access</li>
+              </ul>
+            </article>
+          </div>
+        </div>
       </section>
 
       <!-- ? Comparison Section -->
