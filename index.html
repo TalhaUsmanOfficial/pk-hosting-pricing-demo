@@ -296,20 +296,333 @@
       </section>
 
       <!-- ? Comparison Section -->
-      <section id="comparison" aria-labelledby="comparison-heading">
-        <h2 id="comparison-heading">Compare VPS Plans</h2>
-        <!-- TODO: Comparison content would go here -->
+
+      <section
+        id="comparison"
+        class="section comparison-section"
+        aria-labelledby="comparison-heading"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <h2 id="comparison-heading">Compare VPS Plans</h2>
+            <p>Compare server resources and features to find the right plan.</p>
+          </div>
+
+          <div
+            class="comparison-table-wrapper"
+            role="region"
+            aria-label="VPS plan comparison table"
+            tabindex="0"
+          >
+            <table class="comparison-table">
+              <caption>
+                Specifications and features included in each VPS hosting plan.
+              </caption>
+
+              <thead>
+                <tr>
+                  <th scope="col">Specifications</th>
+                  <th scope="col">Starter</th>
+                  <th scope="col">Growth</th>
+                  <th scope="col">Scale</th>
+                  <th scope="col">Dedicated Core</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <th scope="row">vCPU Cores</th>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>8</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">RAM</th>
+                  <td>2 GB</td>
+                  <td>4 GB</td>
+                  <td>8 GB</td>
+                  <td>16 GB</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">NVMe Storage</th>
+                  <td>30 GB</td>
+                  <td>60 GB</td>
+                  <td>120 GB</td>
+                  <td>240 GB</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Bandwidth</th>
+                  <td>1 TB</td>
+                  <td>2 TB</td>
+                  <td>4 TB</td>
+                  <td>8 TB</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Network Speed</th>
+                  <td>1 Gbps</td>
+                  <td>1 Gbps</td>
+                  <td>2 Gbps</td>
+                  <td>2 Gbps</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Dedicated IPv4</th>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Virtualization</th>
+                  <td>KVM</td>
+                  <td>KVM</td>
+                  <td>KVM</td>
+                  <td>KVM</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Root Access</th>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Operating System</th>
+                  <td>Linux</td>
+                  <td>Linux</td>
+                  <td>Linux</td>
+                  <td>Linux</td>
+                </tr>
+
+                <tr>
+                  <th scope="row">Support</th>
+                  <td>Standard</td>
+                  <td>Priority</td>
+                  <td>Priority</td>
+                  <td>Priority</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </section>
+
       <!-- ? FAQ Section -->
-      <section id="faq" aria-labelledby="faq-heading">
-        <h2 id="faq-heading">Frequently Asked Questions</h2>
-        <!-- TODO: FAQ content would go here -->
+
+      <section
+        id="faq"
+        class="section faq-section"
+        aria-labelledby="faq-heading"
+      >
+        <div class="container faq-container">
+          <div class="section-heading">
+            <h2 id="faq-heading">Frequently Asked Questions</h2>
+            <p>Find answers to common questions about VPS hosting.</p>
+          </div>
+
+          <div class="faq-list">
+            <article class="faq-item">
+              <h3>
+                <button
+                  class="faq-question"
+                  id="faq-question-1"
+                  type="button"
+                  aria-expanded="true"
+                  aria-controls="faq-answer-1"
+                >
+                  What is VPS hosting?
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+
+              <div
+                class="faq-answer"
+                id="faq-answer-1"
+                role="region"
+                aria-labelledby="faq-question-1"
+              >
+                <p>
+                  VPS hosting provides a virtual private server with dedicated
+                  resources inside a physical server. It gives you more control
+                  and flexibility than typical shared hosting.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <h3>
+                <button
+                  class="faq-question"
+                  id="faq-question-2"
+                  type="button"
+                  aria-expanded="true"
+                  aria-controls="faq-answer-2"
+                >
+                  What is the difference between VPS and shared hosting?
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+
+              <div
+                class="faq-answer"
+                id="faq-answer-2"
+                role="region"
+                aria-labelledby="faq-question-2"
+              >
+                <p>
+                  Shared hosting distributes server resources among multiple
+                  users. VPS hosting provides an isolated virtual environment
+                  with allocated resources and greater administrative control.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <h3>
+                <button
+                  class="faq-question"
+                  id="faq-question-3"
+                  type="button"
+                  aria-expanded="true"
+                  aria-controls="faq-answer-3"
+                >
+                  Can I install my own software on a VPS?
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+
+              <div
+                class="faq-answer"
+                id="faq-answer-3"
+                role="region"
+                aria-labelledby="faq-question-3"
+              >
+                <p>
+                  Yes. VPS hosting with root access generally allows you to
+                  install and configure compatible software, applications and
+                  server services.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <h3>
+                <button
+                  class="faq-question"
+                  id="faq-question-4"
+                  type="button"
+                  aria-expanded="true"
+                  aria-controls="faq-answer-4"
+                >
+                  Can I upgrade my VPS plan later?
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+
+              <div
+                class="faq-answer"
+                id="faq-answer-4"
+                role="region"
+                aria-labelledby="faq-question-4"
+              >
+                <p>
+                  VPS resources can often be upgraded as your requirements grow.
+                  Available upgrade options depend on the hosting provider and
+                  its service policies.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <h3>
+                <button
+                  class="faq-question"
+                  id="faq-question-5"
+                  type="button"
+                  aria-expanded="true"
+                  aria-controls="faq-answer-5"
+                >
+                  Do I get full root access?
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+              </h3>
+
+              <div
+                class="faq-answer"
+                id="faq-answer-5"
+                role="region"
+                aria-labelledby="faq-question-5"
+              >
+                <p>
+                  The demo plans on this page include full root access. This
+                  allows administrators to manage their server configuration and
+                  supported software.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
       </section>
     </main>
 
     <!-- ? Footer -->
-    <footer>
-      <p>&copy; 2026 PKHosting. Assessment demonstration project.</p>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="footer-brand">
+            <a href="#" class="brand" aria-label="PKHosting home">
+              PK<span>Hosting</span>
+            </a>
+
+            <p>
+              Powerful VPS hosting solutions for projects that need flexibility,
+              control and reliable resources.
+            </p>
+          </div>
+
+          <nav class="footer-navigation" aria-label="Footer navigation">
+            <h3>Quick Links</h3>
+
+            <ul>
+              <li><a href="#pricing">VPS Plans</a></li>
+              <li><a href="#comparison">Compare Plans</a></li>
+              <li><a href="#faq">Frequently Asked Questions</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-payments">
+            <h3>We Accept</h3>
+
+            <ul class="payment-methods" aria-label="Accepted payment methods">
+              <li>Cards via Stripe (Visa, Mastercard)</li>
+              <li>PayPal</li>
+              <li>JazzCash</li>
+              <li>EasyPaisa</li>
+              <li>Bank Transfer</li>
+            </ul>
+
+            <p class="payment-note">
+              Payment availability depends on invoice currency and the payment
+              options offered at checkout.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 PKHosting. All rights reserved.</p>
+
+          <p>VPS Hosting Assessment Demonstration</p>
+        </div>
+      </div>
     </footer>
   </body>
 </html>

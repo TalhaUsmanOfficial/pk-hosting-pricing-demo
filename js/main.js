@@ -6,6 +6,7 @@
 */
 
 
+// ? Pricing Section
 const billingControls = document.querySelector(".billing-controls");
 
 const billingOptions = document.querySelectorAll(
@@ -121,13 +122,152 @@ function updatePricing() {
     }
 }
 
-billingOptions.forEach((option) => {
-    option.addEventListener("change", updatePricing);
+
+
+// ? FAQ Section
+
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+function setFaqState(button, answer, isOpen) {
+    button.setAttribute("aria-expanded", String(isOpen));
+    answer.hidden = !isOpen;
+
+    const icon = button.querySelector(".faq-icon");
+
+    if (icon) {
+        icon.textContent = isOpen ? "−" : "+";
+    }
+}
+
+faqItems.forEach((item, index) => {
+    const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    if (!button || !answer) {
+        return;
+    }
+
+    // First answer stays open; remaining answers start collapsed.
+    setFaqState(button, answer, index === 0);
+
+    button.addEventListener("click", () => {
+        const isCurrentlyOpen =
+            button.getAttribute("aria-expanded") === "true";
+
+        // Close all FAQ answers first.
+        faqItems.forEach((faqItem) => {
+            const otherButton = faqItem.querySelector(".faq-question");
+            const otherAnswer = faqItem.querySelector(".faq-answer");
+
+            if (otherButton && otherAnswer) {
+                setFaqState(otherButton, otherAnswer, false);
+            }
+        });
+
+        // Open the clicked answer only if it was previously closed.
+        if (!isCurrentlyOpen) {
+            setFaqState(button, answer, true);
+        }
+    });
 });
 
-currencySelect?.addEventListener("change", updatePricing);
+
+// ? Preferences Storage
+
+const PREFERENCES_KEY = "pkhosting-vps-preferences";
+
+function loadPreferences() {
+    const defaultPreferences = {
+        billing: "monthly",
+        currency: "PKR"
+    };
+
+    try {
+        const savedData = localStorage.getItem(PREFERENCES_KEY);
+
+        if (!savedData) {
+            return defaultPreferences;
+        }
+
+        const preferences = JSON.parse(savedData);
+
+        if (!preferences || typeof preferences !== "object") {
+            return defaultPreferences;
+        }
+
+        return {
+            billing: preferences.billing === "annual"
+                ? "annual"
+                : "monthly",
+
+            currency: Object.hasOwn(
+                exchangeRates,
+                preferences.currency
+            )
+                ? preferences.currency
+                : "PKR"
+        };
+
+    } catch (error) {
+        // Storage may be unavailable or saved JSON may be invalid.
+        return defaultPreferences;
+    }
+}
+
+function savePreferences() {
+    const preferences = {
+        billing: getSelectedBilling(),
+        currency: getSelectedCurrency()
+    };
+
+    try {
+        localStorage.setItem(
+            PREFERENCES_KEY,
+            JSON.stringify(preferences)
+        );
+    } catch (error) {
+        // Pricing still works even if browser storage is unavailable.
+    }
+}
+
+function applyPreferences(preferences) {
+    const billingOption = document.querySelector(
+        `input[name="billing-period"][value="${preferences.billing}"]`
+    );
+
+    if (billingOption) {
+        billingOption.checked = true;
+    }
+
+    if (
+        currencySelect &&
+        Object.hasOwn(exchangeRates, preferences.currency)
+    ) {
+        currencySelect.value = preferences.currency;
+    }
+}
+
+
+function handlePreferenceChange() {
+    updatePricing();
+    savePreferences();
+}
+
+billingOptions.forEach((option) => {
+    option.addEventListener("change", handlePreferenceChange);
+});
+
+currencySelect?.addEventListener(
+    "change",
+    handlePreferenceChange
+);
 
 if (billingControls && currencySelect && pricingCards.length > 0) {
+    const preferences = loadPreferences();
+
+    applyPreferences(preferences);
     updatePricing();
+
     billingControls.hidden = false;
 }
